@@ -1,0 +1,41 @@
+﻿@page
+@model linqweb.Pages.Orders.IndexModel
+@using linqweb.Models
+
+@{
+}
+<h1>Orders</h1> 
+<div class="container">
+    <form method="post">
+        <label class="m-2">Item includes : </label>
+        <input class="m-2" type="text" asp-for="Search" />
+        <button class="btn btn-primary">Search</button>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Supplier/Client</th>
+            <th scope="col">Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (OrderView o in @Model.orderlist)
+        {
+            <tr>
+                <td>@o.Id</td>
+                <td>@o.ItemName</td>
+                <td>@o.Quantity</td>
+                <td>@o.SupplierName</td>
+                <td>@o.Type</td>
+                <td><a class="btn btn-primary" asp-page="/Orders/Edit" asp-route-Id="@o.Id">Edit</a></td>
+                <td><a class="btn btn-danger" asp-page="/Orders/Delete" asp-route-Id="@o.Id">Delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a class="btn btn-primary" asp-page="/Orders/Create">Create New Order</a>

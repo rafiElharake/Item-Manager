@@ -1,0 +1,71 @@
+﻿@page
+@model linqweb.Items.IndexModel
+@{
+}
+<style>
+    .form-check {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-check-input {
+        vertical-align: middle;
+    }
+
+    .form-check-label {
+        line-height: 1.5;
+    }
+</style>
+<h1>Items</h1> 
+<form method="post" >
+    <label class="m-2">name includes : </label>
+    <input class="m-2" type="text" asp-for="SearchName" />
+    <label class ="m-2">price = </label>
+    <input class ="m-2" type="text" asp-for="Price" />
+    <label class="m-2">Quantity < </label>
+    <input class="m-2" type="text" asp-for="Quantity" />
+    <br />
+    <label class="m-2">Sort By price :  </label>
+    <input class="form-check-input" type="radio" name="selectedOption" value="Increasing" id="flexRadioDefault1" >
+        <label class="form-check-label" for="flexRadioDefault1">
+            Increasing
+        </label>
+        <input class="form-check-input" type="radio" name="selectedOption" value="Decreasing" id="flexRadioDefault2" >
+        <label class="form-check-label" for="flexRadioDefault2">
+            Decreasing
+        </label>
+    <button class="btn btn-primary m-2">Search</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Item</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Supplier</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @for(int s = 0; s < Model.Items.Count; s++)
+        {
+            <tr>
+            <td>@Model.Items[s].Id</td>
+                <td>@Model.Items[s].ItemName</td>
+                <td>@Model.Items[s].Price</td>
+                <td>@Model.Items[s].Quantity</td>
+                <td>@Model.Items[s].Name</td>
+                <td><a class="btn btn-primary" asp-page="/Items/Edit" asp-route-Id="@Model.Items[s].Id">Edit</a></td>
+                <td><a class="btn btn-danger" asp-page="/Items/Delete" asp-route-Id="@Model.Items[s].Id">Delete</a></td>
+            </tr>
+        }
+        
+    </tbody>
+</table>
+<a class="btn btn-primary" asp-page="/Items/Create">Create New Item</a>
+@* <form method="post" asp-page-handler="Total">
+    <input type="text" asp-for="Total" />
+    <button class="btn btn-primary">total</button>
+</form> *@

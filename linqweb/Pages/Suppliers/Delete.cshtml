@@ -1,0 +1,22 @@
+﻿@page
+@model linqweb.Pages.Suppliers.DeleteModel
+@{
+}
+
+<div class="card card-header">Delete Supplier</div> 
+<form method="post" >
+    <div class="card card-body">
+        <div class="m-2">
+            <label class="form-check-label">Name</label>
+            <label type="text" class="form-control m-2">@Model.supplier.Name</label>
+        </div>
+        <div class="m-2">
+            <label class="form-check-label">Email</label>
+            <label type="text" class="form-control m-2">@Model.supplier.Email</label>
+        </div>
+        <div class="m-2"> 
+    </div>
+    <div class="card card-footer">
+        <button class="btn btn-danger">Delete</button>
+    </div>
+</form>

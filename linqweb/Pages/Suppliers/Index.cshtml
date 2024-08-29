@@ -1,0 +1,35 @@
+﻿@page
+@model linqweb.Pages.Suppliers.IndexModel
+@{
+}
+
+<h1>Suppliers</h1> 
+<div class="container">
+    <form method="post">
+        <input type="text" asp-for="SearchName" />
+        <button class="btn btn-primary">Search</button>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int s = 0; s < Model.suppliers.Count; s++)
+        {
+            <tr>
+                <td>@Model.suppliers[s].Id</td>
+                <td>@Model.suppliers[s].Name</td>
+                <td>@Model.suppliers[s].Email</td>
+                <td><a class="btn btn-primary" asp-page="/Suppliers/Edit" asp-route-Id="@Model.suppliers[s].Id">Edit</a></td>
+                <td><a class="btn btn-danger" asp-page="/Suppliers/Delete" asp-route-Id="@Model.suppliers[s].Id">Delete</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a class="btn btn-primary" asp-page="/Suppliers/Create">New Supplier</a>

@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    .btn {
+        margin: 60px;
+        width: 150px; /* Adjust width as needed */
+        height: 66px; /* Adjust height as needed */
+        line-height: 50px; /* Vertically center text */
+        text-align: center; /* Center text horizontally */
+    }
+</style>
+<div class="text-center">
+    <a class="btn btn-primary" asp-page="/Items/Index" >Items</a><br />
+    <a class="btn btn-primary" asp-page="/Suppliers/Index">Suppliers</a><br />
+    <a class="btn btn-primary" asp-page="/Orders/Index">Orders</a>
+</div>

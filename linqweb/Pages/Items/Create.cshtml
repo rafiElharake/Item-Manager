@@ -1,0 +1,36 @@
+﻿@page
+@model linqweb.Pages.Items.CreateModel
+@{
+}
+
+<div class="card card-header">Create New Item</div>
+ 
+<form method="post">
+    <div class="card card-body">
+        <div class="m-2">
+            <label class="form-check-label">Item Name</label>
+            <input type="text" class="form-control m-2" asp-for="item.ItemName" />
+        </div>
+        <div class="m-2">
+            <label class="form-check-label">Price</label>
+            <input type="text" class="form-control m-2" asp-for="item.Price" />
+        </div>
+        <div class="m-2">
+            <label class="form-check-label">Quantity</label>
+            <input type="text" class="form-control m-2" asp-for="item.Quantity" />
+        </div>
+        <div class="m-2">
+            <label class="form-check-label">Supplier Name</label>
+            <select class="form-control m-2" asp-for="item.SupplierId">
+                @foreach (var s in Model.suppliers)
+                {
+                    <option value="@s.Id">@s.Name</option>
+                }
+
+            </select>
+        </div>
+    </div>
+<div class="card card-footer">
+    <button class="btn btn-dark">save</button>
+</div>
+</form>

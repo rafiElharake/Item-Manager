@@ -1,0 +1,34 @@
+﻿@page
+@model linqweb.Pages.Orders.DeleteModel
+@{
+}
+
+<div class="card card-header">Delete Order</div>
+
+<form method="post">
+    <div class="card card-body">
+        <div class="m-2">
+            <label class="form-check-label">Item</label>
+            <label type="text" class="form-control m-2">@Model.Order.Item.ItemName</label>
+        </div>
+
+        <div class="m-2">
+            <label class="form-check-label">Quantity</label>
+            <label type="text" class="form-control m-2">@Model.Order.Quantity</label>
+        </div>
+
+        <div class="m-2">
+            <label class="form-check-label">Type</label>
+            <label type="text" class="form-control m-2">@Model.Order.Type</label>
+        </div>
+
+        <div class="m-2">
+            <label class="form-check-label">Supplier</label>
+            <label type="text" class="form-control m-2">@Model.Order.Supplier?.Name</label>
+        </div>
+    </div>
+
+    <div class="card card-footer">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+﻿@page
+@model linqweb.Pages.Orders.EditModel
+@{
+}
+<div class="card card-header">Edit Order</div>
+
+<form method="post">
+    <div class="card card-body">
+        <div class="form-group">
+            <label asp-for="order.ItemId" class="control-label m-2"></label>
+            <select asp-for="order.ItemId" class="form-control m-2">
+                <option value="">Select an Item</option>
+                @foreach (var item in Model.items)
+                {
+                    <option value="@item.Id">@item.ItemName</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="order.Quantity" class="control-label m-2">Quantity</label>
+            <input asp-for="order.Quantity" class="form-control m-2" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="order.Type" class="control-label m-2"></label>
+            <label asp-for="order.Type" class="control-label m-2"></label>
+            <select asp-for="order.Type" class="form-control m-2">
+                <option value="">Select Type</option>
+                @foreach (var t in Model.io)
+                {
+                    <option value="@t">@t</option>
+                }
+            </select>
+        </div> 
+    </div>
+
+    <div class="card card-footer">
+        <button type="submit" class="btn btn-dark">Save</button>
+    </div>
+</form>

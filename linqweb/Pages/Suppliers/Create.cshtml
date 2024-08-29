@@ -1,0 +1,22 @@
+﻿@page
+@model linqweb.Pages.Suppliers.CreateModel
+@{
+}
+
+
+<div class="card card-header">Add Supplier</div> 
+<form method="post">
+    <div class="card card-body">
+        <div class="m-2">
+            <label class="form-check-label">Supplier Name</label>
+            <input type="text" class="form-control m-2" asp-for="supplier.Name" />
+        </div>
+        <div class="m-2">
+            <label class="form-check-label">Email</label>
+            <input type="text" class="form-control m-2" asp-for="supplier.Email" />
+        </div>
+    </div>
+    <div class="card card-footer">
+        <button class="btn btn-dark">save</button>
+    </div>
+</form>
